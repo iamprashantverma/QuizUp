@@ -64,7 +64,6 @@ function startQuiz() {
 }
 
 function displayQuestion() {
-
     const currentQuestion = questions[currentQuestionIndex];
     
     questionText.style.display = 'block';
@@ -79,27 +78,42 @@ function displayQuestion() {
         button.innerText = optionText;
         button.classList.add("option-btn");
 
-        button.addEventListener("click", () => {
-            clearInterval(timer);
-            isOptionSelected = true;
-            if (optionText === currentQuestion.answer) {
-                score++;
-            }
-            if (currentQuestionIndex == totalQuestions - 1) {
-                // user successfully attempted all questions show the result
-                displayResult();
-                return;
-            }
-                nextQuestion();
-            // Optional: visually mark selection
-        });
+        // Use separate function for click
+        button.addEventListener("click", () => handleOptionClick(button, optionText, currentQuestion));
 
         li.appendChild(button);
         optionsContainer.appendChild(li);
-        
     });
-    startTimer();
 
+    startTimer();
+}
+
+function handleOptionClick(button, optionText, currentQuestion) {
+    clearInterval(timer);
+    isOptionSelected = true;
+
+    const allButtons = optionsContainer.querySelectorAll(".option-btn");
+    allButtons.forEach(btn => {
+        btn.style.backgroundColor = ""; 
+        btn.style.color = "";
+    });
+
+    if (optionText === currentQuestion.answer) {
+        score++;
+        button.style.backgroundColor = "blue"; 
+        button.style.color = "white";
+    } else {
+        button.style.backgroundColor = "red"; 
+        button.style.color = "white";
+    }
+
+    setTimeout(() => {
+        if (currentQuestionIndex == totalQuestions - 1) {
+            displayResult();
+        } else {
+            nextQuestion();
+        }
+    }, 500); 
 }
 
 function nextQuestion() {
