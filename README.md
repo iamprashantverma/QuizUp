@@ -52,6 +52,10 @@ QuizApp/
 </p>
 
 ---
+##  Live Demo
+ **Try it now:** [https://quiz-up.vercel.app/](https://quiz-up.vercel.app/)
+
+---
 
 ## How to Run Locally
 1. **Clone the repository:**
