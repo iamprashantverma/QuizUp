@@ -1,55 +1,60 @@
-#  QuizApp
+# QuizApp
 
-```yaml
-quizapp:
-  name: "QuizApp"
-  description: "An interactive Quiz Application built using HTML, CSS, and JavaScript. It allows users to test their knowledge through multiple-choice questions with real-time feedback and score tracking."
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![HTML5](https://img.shields.io/badge/HTML5-orange)
+![CSS3](https://img.shields.io/badge/CSS3-blue)
 
-  features:
-    - "Dynamic question rendering"
-    - "Multiple-choice options with instant validation"
-    - "Next and Submit button flow"
-    - "Displays final score at the end of the quiz"
-    - "Responsive and lightweight — runs smoothly on any browser"
+**An interactive Quiz Application built using HTML, CSS, and JavaScript.**  
+Test your knowledge with multiple-choice questions, get real-time feedback, and track your score.
 
-  tech_stack:
-    HTML5: "Structure and content"
-    CSS3: "Styling and layout"
-    JavaScript: "Logic and interactivity"
+---
 
-  project_structure:
-    - "index.html # Main HTML file"
-    - "style.css # CSS styling file"
-    - "script.js # JavaScript quiz logic"
-    - "README.md # Project documentation"
+## Features
+- 🎯 Dynamic rendering of quiz questions
+- 🧩 Multiple-choice options with instant validation
+- ⏭️ Automatically moves to the next question upon selecting an answer
+- ⏱️ Timer for each question to enhance challenge
+- 📊 Final score display at the end of the quiz
 
-  run_locally:
-    steps:
-      - "Clone the repository: git clone https://github.com/iamprashantverma/QuizApp.git"
-      - "Navigate to the project directory: cd QuizApp"
-      - "Open index.html in your browser"
-      - "Click Start Quiz and begin answering questions 🎉"
 
-  preview:
-    image_url: "https://via.placeholder.com/800x400?text=QuizApp+Preview"
-    note: "Add your own screenshot later"
 
-  future_enhancements:
-    - "Add timer for each question"
-    - "Add categories and difficulty levels"
-    - "Save scores using localStorage"
-    - "Add sound effects and transitions"
+---
 
-  author:
-    name: "Prashant Verma"
-    education: "MCA @ NIT Bhopal"
-    linkedin: "https://www.linkedin.com/in/prashant2k26"
-    github: "https://github.com/iamprashantverma"
+## Tech Stack
+- **HTML5:** Structure and content  
+- **CSS3:** Styling and layout  
+- **JavaScript (ES6):** Quiz logic and interactivity  
 
-  contribute: "Feel free to fork this repo, open issues, or submit pull requests! Every contribution helps make QuizApp better 💪"
+---
 
-  license:
-    type: "MIT License"
-    note: "Free to use and modify"
+## Project Structure
+QuizApp/
 
-  footer_note: "Made with ❤️ using Vanilla JavaScript"
+├─ index.html # Main HTML file
+
+├─ style.css # CSS styling file
+
+├─ script.js # JavaScript quiz logic
+
+├─ README.md # Project documentation
+
+---
+
+## Preview
+![QuizApp Preview](https://via.placeholder.com/800x400?text=QuizApp+Preview)  
+*You can replace this placeholder with your own screenshot or GIF.*
+
+---
+
+## How to Run Locally
+1. **Clone the repository:**
+```bash
+git clone https://github.com/iamprashantverma/QuizApp.git
+```
+2. Navigate to the project directory:
+```bash
+cd QuizUp
+```
+3. Open index.html in your browser.
+
+4. Click "Start Quiz" and begin answering questions �
