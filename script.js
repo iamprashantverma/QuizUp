@@ -1,53 +1,53 @@
 const questions = [
   {
-    question: "If you could have one superpower, what would it be?",
-    options: ["Flying", "Invisibility", "Time Travel", "Mind Reading"],
-    answer: "Flying" 
-    },
-  {
-    question: "Which activity do you enjoy the most on weekends?",
-    options: ["Watching movies", "Playing sports", "Coding", "Sleeping"],
-    answer: "Coding"
+    question: "Which season do you enjoy the most?",
+    options: ["Spring", "Summer", "Autumn", "Winter"],
+    answer: "Autumn"
   },
   {
-    question: "What type of music do you vibe with the most?",
-    options: ["Pop", "Lo-Fi", "Rock", "Classical"],
-    answer: "Lo-Fi"
+    question: "What’s your favorite type of food?",
+    options: ["Italian", "Chinese", "Indian", "Mexican"],
+    answer: "Italian"
   },
   {
-    question: "If you could visit one place in the world, where would it be?",
-    options: ["Japan", "Switzerland", "USA", "Maldives"],
-    answer: "Japan"
+    question: "Which hobby do you find most fulfilling?",
+    options: ["Painting", "Writing", "Gardening", "Photography"],
+    answer: "Photography"
   },
   {
-    question: "Which of these do you enjoy doing the most?",
-    options: ["Reading books", "Gaming", "Traveling", "Cooking"],
-    answer: "Traveling"
+    question: "If you could meet any historical figure, who would it be?",
+    options: ["Albert Einstein", "Mahatma Gandhi", "Leonardo da Vinci", "Marie Curie"],
+    answer: "Albert Einstein"
   },
   {
-    question: "What’s your favorite way to relax after a long day?",
-    options: ["Listening to music", "Going for a walk", "Watching shows", "Sleeping early"],
-    answer: "Listening to music"
+    question: "Which type of books do you prefer?",
+    options: ["Fiction", "Non-Fiction", "Biography", "Self-Help"],
+    answer: "Fiction"
   },
   {
-    question: "If you had to choose a pet, what would it be?",
-    options: ["Dog", "Cat", "Bird", "Rabbit"],
-    answer: "Dog"
+    question: "What is your favorite way to stay active?",
+    options: ["Running", "Yoga", "Cycling", "Swimming"],
+    answer: "Yoga"
   },
   {
-    question: "Which genre of movies do you like the most?",
-    options: ["Action", "Comedy", "Romance", "Sci-Fi"],
-    answer: "Action"
+    question: "Which superpower would you least want to have?",
+    options: ["Flying", "Time Travel", "Invisibility", "Super Strength"],
+    answer: "Time Travel"
   },
   {
-    question: "What motivates you the most?",
-    options: ["Success", "Passion", "Money", "Family"],
-    answer: "Passion"
+    question: "Which type of games do you enjoy?",
+    options: ["Puzzle", "Action", "Adventure", "Strategy"],
+    answer: "Strategy"
   },
   {
-    question: "What’s your dream profession?",
-    options: ["Entrepreneur", "Software Developer", "Artist", "Scientist"],
-    answer: "Software Developer"
+    question: "What is your preferred mode of travel?",
+    options: ["Car", "Train", "Plane", "Bicycle"],
+    answer: "Plane"
+  },
+  {
+    question: "Which tech gadget do you find most useful?",
+    options: ["Smartphone", "Laptop", "Smartwatch", "Tablet"],
+    answer: "Laptop"
   }
 ];
 
