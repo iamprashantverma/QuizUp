@@ -33,43 +33,114 @@ const result = document.querySelector("#result");
 const timerDisplay = document.querySelector("#timer");
 
 const timePerQuestions = 15;
-let currentTime ;
-let timer ;
+let currentTime;
+let timer;
 let isOptionSelected = false;  
 let score = 0;                 
 let currentQuestionIndex = 0;   
 const totalQuestions = questions.length;
 
+// Simple sound manager using Web Audio API
+let audioContext;
+let masterGain;
+
+function initAudio() {
+    if (audioContext) return;
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    audioContext = new Ctx();
+    masterGain = audioContext.createGain();
+    masterGain.gain.value = 0.4; // overall volume
+    masterGain.connect(audioContext.destination);
+}
+
+function playBeep({ frequency = 800, durationMs = 120, type = 'sine', volume = 0.6 }) {
+    if (!audioContext) return;
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    oscillator.type = type;
+    oscillator.frequency.value = frequency;
+    gain.gain.value = 0;
+    oscillator.connect(gain);
+    gain.connect(masterGain);
+    const now = audioContext.currentTime;
+    // quick attack/decay envelope
+    gain.gain.linearRampToValueAtTime(volume, now + 0.01);
+    gain.gain.linearRampToValueAtTime(0.0, now + durationMs / 1000);
+    oscillator.start(now);
+    oscillator.stop(now + durationMs / 1000 + 0.01);
+}
+
+function playTick() {
+    // soft tick
+    playBeep({ frequency: 900, durationMs: 60, type: 'square', volume: 0.15 });
+}
+
+function playCorrect() {
+    // pleasant up-chirp
+    playBeep({ frequency: 660, durationMs: 90, type: 'sine', volume: 0.35 });
+    setTimeout(() => playBeep({ frequency: 880, durationMs: 120, type: 'sine', volume: 0.35 }), 80);
+}
+
+function playWrong() {
+    // short buzzer
+    playBeep({ frequency: 220, durationMs: 160, type: 'sawtooth', volume: 0.25 });
+}
+
+function playMissed() {
+    // descending soft tone to indicate missed
+    playBeep({ frequency: 500, durationMs: 120, type: 'triangle', volume: 0.22 });
+    setTimeout(() => playBeep({ frequency: 380, durationMs: 160, type: 'triangle', volume: 0.22 }), 90);
+}
+
+function hideTimer() {
+    timerDisplay.style.display = 'none';
+}
+
+function showTimer() {
+    timerDisplay.style.display = 'grid';
+}
+
 function startTimer(){
+    if (timer) clearInterval(timer);
     currentTime = timePerQuestions;
-    timerDisplay.innerText = `Time : ${currentTime}s`
+    showTimer();
+    timerDisplay.innerText = `Time : ${currentTime}s`;
     timer = setInterval(()=>{
         currentTime--;
-        timerDisplay.innerText = `Time : ${currentTime}s`
+        timerDisplay.innerText = `Time : ${currentTime}s`;
+        playTick();
         if (currentTime <= 0 ){
             clearInterval(timer);
+            timer = null;
+            if (!isOptionSelected) {
+                playMissed();
+            }
             nextQuestion();
         }
     },1000);
 }
 
 function startQuiz() {
+    initAudio();
+    if (audioContext && audioContext.state === 'suspended') {
+        audioContext.resume();
+    }
     score = 0;
     currentQuestionIndex = 0;
     isOptionSelected = false;
     startButton.style.display = 'none';
     result.style.display = 'none';
+    hideTimer();
     displayQuestion();
-
 }
 
 function displayQuestion() {
+
     const currentQuestion = questions[currentQuestionIndex];
-    
     questionText.style.display = 'block';
     questionText.innerText = currentQuestion.question;
 
-    optionsContainer.style.display = "block";
+    optionsContainer.style.display = "grid";
     optionsContainer.innerHTML = ""; 
 
     currentQuestion.options.forEach(optionText => {
@@ -89,22 +160,25 @@ function displayQuestion() {
 }
 
 function handleOptionClick(button, optionText, currentQuestion) {
-    clearInterval(timer);
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
+    }
     isOptionSelected = true;
 
     const allButtons = optionsContainer.querySelectorAll(".option-btn");
     allButtons.forEach(btn => {
-        btn.style.backgroundColor = ""; 
-        btn.style.color = "";
+        btn.disabled = true;
+        btn.classList.remove('is-correct', 'is-wrong');
     });
 
     if (optionText === currentQuestion.answer) {
         score++;
-        button.style.backgroundColor = "blue"; 
-        button.style.color = "white";
+        button.classList.add('is-correct');
+        playCorrect();
     } else {
-        button.style.backgroundColor = "red"; 
-        button.style.color = "white";
+        button.classList.add('is-wrong');
+        playWrong();
     }
 
     setTimeout(() => {
@@ -119,17 +193,29 @@ function handleOptionClick(button, optionText, currentQuestion) {
 function nextQuestion() {
     isOptionSelected = false;
     currentQuestionIndex++;
+    if (currentQuestionIndex >= totalQuestions) {
+        displayResult();
+        return;
+    }
     displayQuestion();
 }
 
 function displayResult() {
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
+    }
+    hideTimer();
+    // end sound
+    playBeep({ frequency: 740, durationMs: 120, type: 'sine', volume: 0.32 });
+    setTimeout(() => playBeep({ frequency: 988, durationMs: 160, type: 'sine', volume: 0.32 }), 110);
+    setTimeout(() => playBeep({ frequency: 1319, durationMs: 220, type: 'sine', volume: 0.28 }), 230);
     result.style.display = "block";
     result.innerText = `Your Score is ${score} out of ${totalQuestions}`;
     questionText.style.display ='none';
     optionsContainer.style.display = 'none';
     startButton.style.display='block';
-    timerDisplay.style.display = 'none';
-    startButton.innerText =" Restart quiz!"
+    startButton.innerText =" Restart quiz!";
 }
 
 startButton.addEventListener('click', startQuiz);

@@ -4,21 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
-   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="quiz-container">
-        <h2 id="wel-heading" id="start-btn"> Welcome to the Solo Quiz!</h2>
-        <h3 id="result"> </h3>
-        <button id="start-btn"> Start Quiz!</button>
-
-        <h3 id="question"></h3>
-        <div id="timer"></div>
-        <ol class="option-container">
-            </ol>    
-        <script src="script.js"></script>
+    <div class="gradient-bg"></div>
+    <div class="noise-overlay"></div>
+    <div class="quiz-wrapper">
+        <header class="app-header">
+            <h1 class="brand"><span class="brand-accent">Quiz</span>Up</h1>
+        </header>
+        <main class="quiz-container">
+            <h2 id="wel-heading" class="welcome">Welcome to the Solo Quiz!</h2>
+            <h3 id="result"></h3>
+            <button id="start-btn" class="primary-btn">Start Quiz</button>
+            <section class="qt-container">
+                <div class="question-row">
+                    <h3 id="question"></h3>
+                    <div id="timer" aria-live="polite"></div>
+                </div>
+            </section>
+            <ol class="option-container" role="list"></ol>
+        </main>
+        <footer class="app-footer">
+            <small>Good luck! Choose wisely ✨</small>
+        </footer>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
