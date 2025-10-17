@@ -30,12 +30,28 @@ const questionText = document.querySelector("#question");
 const optionsContainer = document.querySelector(".option-container");
 const startButton = document.querySelector("#start-btn");
 const result = document.querySelector("#result");
+const timerDisplay = document.querySelector("#timer");
 
+const timePerQuestions = 15;
+let currentTime ;
+let timer ;
 let isOptionSelected = false;  
 let score = 0;                 
 let currentQuestionIndex = 0;   
 const totalQuestions = questions.length;
 
+function startTimer(){
+    currentTime = timePerQuestions;
+    timerDisplay.innerText = `Time : ${currentTime}s`
+    timer = setInterval(()=>{
+        currentTime--;
+        timerDisplay.innerText = `Time : ${currentTime}s`
+        if (currentTime <= 0 ){
+            clearInterval(timer);
+            nextQuestion();
+        }
+    },1000);
+}
 
 function startQuiz() {
     score = 0;
@@ -50,7 +66,7 @@ function startQuiz() {
 function displayQuestion() {
 
     const currentQuestion = questions[currentQuestionIndex];
-
+    
     questionText.style.display = 'block';
     questionText.innerText = currentQuestion.question;
 
@@ -64,6 +80,7 @@ function displayQuestion() {
         button.classList.add("option-btn");
 
         button.addEventListener("click", () => {
+            clearInterval(timer);
             isOptionSelected = true;
             if (optionText === currentQuestion.answer) {
                 score++;
@@ -79,7 +96,9 @@ function displayQuestion() {
 
         li.appendChild(button);
         optionsContainer.appendChild(li);
+        
     });
+    startTimer();
 
 }
 
@@ -95,6 +114,7 @@ function displayResult() {
     questionText.style.display ='none';
     optionsContainer.style.display = 'none';
     startButton.style.display='block';
+    timerDisplay.style.display = 'none';
     startButton.innerText =" Restart quiz!"
 }
 
