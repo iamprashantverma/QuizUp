@@ -60,7 +60,7 @@ QuizApp/
 ## How to Run Locally
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/iamprashantverma/QuizApp.git
+git clone https://github.com/iamprashantverma/QuizUp.git
 ```
 2. Navigate to the project directory:
 ```bash
