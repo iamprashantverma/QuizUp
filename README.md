@@ -41,8 +41,11 @@ QuizApp/
 ---
 
 ## Preview
-![QuizApp Preview](https://via.placeholder.com/800x400?text=QuizApp+Preview)  
-*You can replace this placeholder with your own screenshot or GIF.*
+
+<p align="center">
+  <img src="./assets/quiz-result.png" alt="Quiz Start Screen" width="45%" style="margin-right:10px;">
+  <img src="./assets/quiz-question.png" alt="Quiz Question Screen" width="45%">
+</p>
 
 ---
 
