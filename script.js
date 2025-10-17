@@ -28,46 +28,76 @@ const questions = [
 
 const questionText = document.querySelector("#question");
 const optionsContainer = document.querySelector(".option-container");
-const nextButton = document.querySelector("#next-btn");
-const submitButton = document.querySelector("#submit-btn");
 const startButton = document.querySelector("#start-btn");
+const result = document.querySelector("#result");
+
+let isOptionSelected = false;  
+let score = 0;                 
+let currentQuestionIndex = 0;   
+const totalQuestions = questions.length;
 
 
-let idx = 0, size = questions.length;
-
-const startHandler = function(){
-
-    // hide the StartButton
-    startButton.style.display='none';
-
-    // display the first question on screen
-    questionText.style.display = 'block';
-    
-    const qObj = questions[idx];
-    questionText.innerText = qObj.question;
-
-    // display the option container
-    optionsContainer.style.display = "block";
-
-    for (let i = 0; i < 4; i++) {
-        let optionText = qObj.options[i];
-        let li = document.createElement("li");
-
-        let button = document.createElement("button");
-        button.innerText = optionText;
-
-        // button.classList.add("option-btn");
-        li.appendChild(button);
-        optionsContainer.appendChild(li);
-    }
-    
-    // enable the next button
-    nextButton.style.display = 'block';
+function startQuiz() {
+    score = 0;
+    currentQuestionIndex = 0;
+    isOptionSelected = false;
+    startButton.style.display = 'none';
+    result.style.display = 'none';
+    displayQuestion();
 
 }
 
-startButton.addEventListener('click',startHandler);
+function displayQuestion() {
 
+    const currentQuestion = questions[currentQuestionIndex];
 
+    questionText.style.display = 'block';
+    questionText.innerText = currentQuestion.question;
+
+    optionsContainer.style.display = "block";
+    optionsContainer.innerHTML = ""; 
+
+    currentQuestion.options.forEach(optionText => {
+        const li = document.createElement("li");
+        const button = document.createElement("button");
+        button.innerText = optionText;
+        button.classList.add("option-btn");
+
+        button.addEventListener("click", () => {
+            isOptionSelected = true;
+            if (optionText === currentQuestion.answer) {
+                score++;
+            }
+            if (currentQuestionIndex == totalQuestions - 1) {
+                // user successfully attempted all questions show the result
+                displayResult();
+                return;
+            }
+                nextQuestion();
+            // Optional: visually mark selection
+        });
+
+        li.appendChild(button);
+        optionsContainer.appendChild(li);
+    });
+
+}
+
+function nextQuestion() {
+    isOptionSelected = false;
+    currentQuestionIndex++;
+    displayQuestion();
+}
+
+function displayResult() {
+    result.style.display = "block";
+    result.innerText = `Your Score is ${score} out of ${totalQuestions}`;
+    questionText.style.display ='none';
+    optionsContainer.style.display = 'none';
+    startButton.style.display='block';
+    startButton.innerText =" Restart quiz!"
+}
+
+startButton.addEventListener('click', startQuiz);
 
 
