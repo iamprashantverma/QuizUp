@@ -8,14 +8,18 @@
 Test your knowledge with multiple-choice questions, get real-time feedback, and track your score.
 
 ---
+## ✨ Features
+- 🎯 **Dynamic question rendering** — Questions and options are generated from a JavaScript array.
+- 🧩 **Multiple-choice options with instant validation** — Immediately shows correct or wrong answers.
+- ⏱️ **Timer for each question** — Encourages quick thinking and adds a fun challenge.
+- 🔊 **Interactive sound effects** — Plays sounds for correct, wrong, and missed answers.
+- ⏭️ **Auto next-question flow** — Automatically moves to the next question after answering or timeout.
+- 📊 **Final score display** — Shows your total score at the end of the quiz.
+- 💡 **Restart functionality** — Allows restarting the quiz anytime.
+- 📱 **Responsive design** — Works seamlessly on desktops, tablets, and mobile devices.
+- ⚡ **Lightweight and fast** — No frameworks, only pure JavaScript, HTML, and CSS.
 
-## Features
-- 🎯 Dynamic rendering of quiz questions
-- 🧩 Multiple-choice options with instant validation
-- ⏭️ Automatically moves to the next question upon selecting an answer
-- ⏱️ Timer for each question to enhance challenge
-- 📊 Final score display at the end of the quiz
-
+---
 
 
 ---
