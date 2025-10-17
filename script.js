@@ -1,30 +1,56 @@
 const questions = [
   {
-    question: "What is the capital of India?",
-    options: ["Mumbai", "Delhi", "Kolkata", "Chennai"],
-    answer: "Delhi"
+    question: "If you could have one superpower, what would it be?",
+    options: ["Flying", "Invisibility", "Time Travel", "Mind Reading"],
+    answer: "Flying" 
+    },
+  {
+    question: "Which activity do you enjoy the most on weekends?",
+    options: ["Watching movies", "Playing sports", "Coding", "Sleeping"],
+    answer: "Coding"
   },
   {
-    question: "Which language runs in a web browser?",
-    options: ["Python", "Java", "C++", "JavaScript"],
-    answer: "JavaScript"
+    question: "What type of music do you vibe with the most?",
+    options: ["Pop", "Lo-Fi", "Rock", "Classical"],
+    answer: "Lo-Fi"
   },
   {
-    question: "Which company developed React?",
-    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-    answer: "Facebook"
+    question: "If you could visit one place in the world, where would it be?",
+    options: ["Japan", "Switzerland", "USA", "Maldives"],
+    answer: "Japan"
   },
   {
-    question: "What does CSS stand for?",
-    options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style System", "Colorful Style Sheets"],
-    answer: "Cascading Style Sheets"
+    question: "Which of these do you enjoy doing the most?",
+    options: ["Reading books", "Gaming", "Traveling", "Cooking"],
+    answer: "Traveling"
   },
   {
-    question: "Which HTML element is used for the largest heading?",
-    options: ["<h1>", "<h6>", "<head>", "<heading>"],
-    answer: "<h1>"
+    question: "What’s your favorite way to relax after a long day?",
+    options: ["Listening to music", "Going for a walk", "Watching shows", "Sleeping early"],
+    answer: "Listening to music"
+  },
+  {
+    question: "If you had to choose a pet, what would it be?",
+    options: ["Dog", "Cat", "Bird", "Rabbit"],
+    answer: "Dog"
+  },
+  {
+    question: "Which genre of movies do you like the most?",
+    options: ["Action", "Comedy", "Romance", "Sci-Fi"],
+    answer: "Action"
+  },
+  {
+    question: "What motivates you the most?",
+    options: ["Success", "Passion", "Money", "Family"],
+    answer: "Passion"
+  },
+  {
+    question: "What’s your dream profession?",
+    options: ["Entrepreneur", "Software Developer", "Artist", "Scientist"],
+    answer: "Software Developer"
   }
 ];
+
 
 const questionText = document.querySelector("#question");
 const optionsContainer = document.querySelector(".option-container");
