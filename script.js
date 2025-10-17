@@ -1,55 +1,56 @@
 const questions = [
   {
-    question: "Which season do you enjoy the most?",
-    options: ["Spring", "Summer", "Autumn", "Winter"],
-    answer: "Autumn"
+    question: "What is 15 + 27?",
+    options: ["42", "32", "52", "40"],
+    answer: "42"
   },
   {
-    question: "What’s your favorite type of food?",
-    options: ["Italian", "Chinese", "Indian", "Mexican"],
-    answer: "Italian"
+    question: "Who is known as the Father of Computers?",
+    options: ["Charles Babbage", "Alan Turing", "Bill Gates", "Steve Jobs"],
+    answer: "Charles Babbage"
   },
   {
-    question: "Which hobby do you find most fulfilling?",
-    options: ["Painting", "Writing", "Gardening", "Photography"],
-    answer: "Photography"
+    question: "What is the square of 12?",
+    options: ["144", "124", "132", "154"],
+    answer: "144"
   },
   {
-    question: "If you could meet any historical figure, who would it be?",
-    options: ["Albert Einstein", "Mahatma Gandhi", "Leonardo da Vinci", "Marie Curie"],
-    answer: "Albert Einstein"
+    question: "Which planet is known as the Red Planet?",
+    options: ["Mars", "Jupiter", "Venus", "Saturn"],
+    answer: "Mars"
   },
   {
-    question: "Which type of books do you prefer?",
-    options: ["Fiction", "Non-Fiction", "Biography", "Self-Help"],
-    answer: "Fiction"
+    question: "What is 8 × 7?",
+    options: ["54", "56", "64", "49"],
+    answer: "56"
   },
   {
-    question: "What is your favorite way to stay active?",
-    options: ["Running", "Yoga", "Cycling", "Swimming"],
-    answer: "Yoga"
+    question: "HTML stands for?",
+    options: ["Hyper Text Markup Language", "High Text Markup Language", "Hyperlink Text Mark Language", "Hyper Tool Markup Language"],
+    answer: "Hyper Text Markup Language"
   },
   {
-    question: "Which superpower would you least want to have?",
-    options: ["Flying", "Time Travel", "Invisibility", "Super Strength"],
-    answer: "Time Travel"
+    question: "What is 100 ÷ 4?",
+    options: ["25", "20", "30", "24"],
+    answer: "25"
   },
   {
-    question: "Which type of games do you enjoy?",
-    options: ["Puzzle", "Action", "Adventure", "Strategy"],
-    answer: "Strategy"
+    question: "Who invented the telephone?",
+    options: ["Alexander Graham Bell", "Thomas Edison", "Nikola Tesla", "Guglielmo Marconi"],
+    answer: "Alexander Graham Bell"
   },
   {
-    question: "What is your preferred mode of travel?",
-    options: ["Car", "Train", "Plane", "Bicycle"],
-    answer: "Plane"
+    question: "Which programming language is used for web apps?",
+    options: ["JavaScript", "C", "Python", "Fortran"],
+    answer: "JavaScript"
   },
   {
-    question: "Which tech gadget do you find most useful?",
-    options: ["Smartphone", "Laptop", "Smartwatch", "Tablet"],
-    answer: "Laptop"
+    question: "What is the value of π (pi) up to 2 decimal places?",
+    options: ["3.14", "3.15", "3.12", "3.13"],
+    answer: "3.14"
   }
 ];
+
 
 
 const questionText = document.querySelector("#question");
