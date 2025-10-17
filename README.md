@@ -68,4 +68,13 @@ cd QuizUp
 ```
 3. Open index.html in your browser.
 
-4. Click "Start Quiz" and begin answering questions �
+4. Click "Start Quiz" and begin answering questions
+## 🔮 Future Scope
+
+- 🧭 **Section-wise Quizzes:** Add topic-based sections (e.g., JavaScript, HTML, CSS, General Knowledge) so users can choose which subject they want to be quizzed on.  
+- 🤖 **AI-Generated Questions:** Integrate AI to automatically generate unique and adaptive questions for each section, making every quiz attempt different and more challenging.  
+- 📊 **Detailed Performance Analytics:** Display user performance by topic, accuracy percentage, and time taken per question to help identify strengths and weaknesses.  
+- 🌐 **User Authentication & Leaderboard:** Implement login functionality and a global leaderboard to let users track progress and compete with others.  
+- 🗂️ **Question Bank Management:** Add an admin dashboard to create, edit, and manage question sets easily.  
+- 🎨 **Enhanced UI/UX:** Introduce animations, progress bars, and theme customization (dark/light mode) for a smoother and modern user experience.
+
