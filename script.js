@@ -38,12 +38,35 @@ let idx = 0, size = questions.length;
 const startHandler = function(){
 
     // hide the StartButton
-    startBtn.style.display='none';
-    
+    startButton.style.display='none';
 
+    // display the first question on screen
+    questionText.style.display = 'block';
+    
+    const qObj = questions[idx];
+    questionText.innerText = qObj.question;
+
+    // display the option container
+    optionsContainer.style.display = "block";
+
+    for (let i = 0; i < 4; i++) {
+        let optionText = qObj.options[i];
+        let li = document.createElement("li");
+
+        let button = document.createElement("button");
+        button.innerText = optionText;
+
+        // button.classList.add("option-btn");
+        li.appendChild(button);
+        optionsContainer.appendChild(li);
+    }
+    
+    // enable the next button
+    nextButton.style.display = 'block';
 
 }
-startBtn.addEventListener('click',startHandler);
+
+startButton.addEventListener('click',startHandler);
 
 
 
