@@ -40,16 +40,15 @@ let score = 0;
 let currentQuestionIndex = 0;   
 const totalQuestions = questions.length;
 
-// Simple sound manager using Web Audio API
 let audioContext;
 let masterGain;
 
 function initAudio() {
     if (audioContext) return;
-    const Ctx = window.AudioContext || window.webkitAudioContext;
+    const Ctx = window.AudioContext;
     audioContext = new Ctx();
     masterGain = audioContext.createGain();
-    masterGain.gain.value = 0.4; // overall volume
+    masterGain.gain.value = 0.4; 
     masterGain.connect(audioContext.destination);
 }
 
